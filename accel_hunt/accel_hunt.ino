@@ -20,7 +20,9 @@ float currentPos[2]; //The players current coordinates XY
 
 float targetX[5]; //X-coordinates for target position
 float targetY[5]; //Y-coordinates for target position
-boolean targetFound[5] = {true, false, false, false, true}; //True if the targets have been found 
+boolean targetFound[5] = {true, false, false, false, true}; //True if the targets have been found
+
+int playArea; //This determines the radius of the play area
 
 int targetGrace; //How much grace the target positions gives 
   
@@ -31,6 +33,9 @@ void setup() {
   pinMode(rPin, OUTPUT);
   pinMode(gPin, OUTPUT);
   pinMode(bPin, OUTPUT);
+
+  //Generate new targets
+  setTargets();
 }
 
 void loop() {
@@ -67,7 +72,23 @@ void updatePosition() {
       
   }
 
-void updateLight() {}
+void updateLight() {
+  //Updates the light intensities to the correct values according to game progress
+  }
+
+void setTargets() {
+  //
+  for (int i = 0; i < sizeof(targetX); i++) {
+    targetX[i] = random(-playArea,playArea);
+    targetY[i] = random(-playArea,playArea); 
+    }
+  
+  }
+
+boolean checkForTarget() {
+  //Checks whether the player is in a Target zone. 
+  //Returns true when the player reaches a target.
+  }
 
 int targetsFound() {
   int found = 0;
