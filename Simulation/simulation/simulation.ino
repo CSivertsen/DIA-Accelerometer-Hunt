@@ -32,8 +32,9 @@ void setup() {
   pinMode(rPin, OUTPUT);
   pinMode(gPin, OUTPUT);
   pinMode(bPin, OUTPUT);
+  turnOff();
 
-
+  lightHouse();
   //blink(3, GREEN);
 
   
@@ -41,6 +42,8 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
+  lightHouse();
+  /*
   delay(10000);
   blink(8,GREEN);
   delay(5000);
@@ -49,6 +52,7 @@ void loop() {
   blink(8,ORANGE);
   delay(2000);
   blink(100,RED);
+  */
 }
 
 void blink(int times, COLOR color) {
@@ -84,15 +88,33 @@ void turnOn() {
 }
 
 void turnOff() {
-  analogWrite(rPin, 0);
-  analogWrite(gPin, 0);
-  analogWrite(bPin, 0);
+  analogWrite(rPin, 255);
+  analogWrite(gPin, 255);
+  analogWrite(bPin, 255);
 }
 
 void setColor(int red, int green, int blue) {
   colorValue[0] = red;
   colorValue[1] = green;
   colorValue[2] = blue;
+}
+
+void lightHouse() {
+  for (int i = 50; i<255; i++) {
+    analogWrite(rPin, i);
+    analogWrite(gPin, i);
+    analogWrite(bPin, i);
+    delay(10);
+  }
+
+  delay(250);
+  for (int i = 255; i>50; i--) {
+    analogWrite(rPin, i);
+    analogWrite(gPin, i);
+    analogWrite(bPin, i);
+    delay(10);
+  }
+  
 }
 
 
