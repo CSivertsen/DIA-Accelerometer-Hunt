@@ -32,9 +32,9 @@ void setup() {
   pinMode(rPin, OUTPUT);
   pinMode(gPin, OUTPUT);
   pinMode(bPin, OUTPUT);
-  turnOff();
+  //turnOff();
 
-  lightHouse();
+  //lightHouse();
   //blink(3, GREEN);
 
   
@@ -42,17 +42,33 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  lightHouse();
-  /*
-  delay(10000);
+  
+  
+  for (int i = 0; i<4; i++) { //56
+    lightHouse(); //350 ms   
+  }
+  
+  //delay(10000);
   blink(8,GREEN);
-  delay(5000);
+  //delay(5000);
+  for (int i = 0; i<1; i++) {
+    lightHouse(); //350 ms   
+  }
   blink(8,YELLOW);
-  delay(3000);
+  //delay(3000);
+  for (int i = 0; i<2; i++) {
+    lightHouse(); //350 ms   
+  }
   blink(8,ORANGE);
-  delay(2000);
+  //delay(2000);
+  for (int i = 0; i<1; i++) {
+    lightHouse(); //350 ms   
+  }
   blink(100,RED);
-  */
+  while (true) {
+    lightHouse();
+  }
+  
 }
 
 void blink(int times, COLOR color) {
