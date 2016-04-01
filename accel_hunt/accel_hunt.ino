@@ -85,9 +85,9 @@ void setTargets() {
   
   }
 
-boolean checkForTarget() {
+int checkForTarget() {
   //Checks whether the player is in a Target zone. 
-  //Returns true when the player reaches a target.
+  //Returns a integer that correspond with the target number, when the player reaches a target.
   }
 
 int targetsFound() {
